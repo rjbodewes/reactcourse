@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import './ExpensesFilter.css';
 
-const ExpensesFilter = () => {
+const ExpensesFilter = (props) => {
   
   const [pickDate, setPickDate] = useState(''); 
 
@@ -10,8 +10,13 @@ const ExpensesFilter = () => {
       //console.log(event.target.value);
       setPickDate(event.target.value);
       
+      props.onChangePickedDate(event.target.value);
+      
+
   };
 
+  
+  
   return (
     <div className='expenses-filter'>
       <div className='expenses-filter__control'>
