@@ -2,17 +2,23 @@ import ExpenseItem from './ExpenseItem';
 import './Expenses.css';
 import Card from '../UI/Card.js';
 import ExpensesFilter from './ExpensesFilter';
+import { useState } from 'react';
 
 function Expenses(props) {
-
+    const [pickedDate, setPickedDate] = useState('');
     
     const savePickedDateHandler = (passedData) => {
-
+        
         console.log(passedData);
+
+        setPickedDate(passedData);
+
+        
     };
 
     return (
         <div>
+            <div>{pickedDate}</div>
             <ExpensesFilter 
             onChangePickedDate={savePickedDateHandler}/>
             <Card className="expenses">
