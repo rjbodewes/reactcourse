@@ -30,6 +30,13 @@ const DUMMY_EXPENSES = [
 
 
 const App = () => {
+  
+  var filteredArray = DUMMY_EXPENSES.filter(function(expense) {
+      return expense.date.getFullYear() === 2021
+  });
+
+
+
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
 
@@ -39,6 +46,10 @@ const App = () => {
     });
   };
 
+
+
+
+  
   // return React.createElement(
   //   'div',
   //   {},
@@ -48,6 +59,7 @@ const App = () => {
 
   return (
     <div>
+      <div>{console.log(filteredArray)}</div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
