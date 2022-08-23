@@ -30,6 +30,13 @@ const DUMMY_EXPENSES = [
 
 
 const App = () => {
+
+    
+
+
+  const pickedYear = (passedData) => {
+    console.log(passedData)
+  };
   
   var filteredArray = DUMMY_EXPENSES.filter(function(expense) {
       return expense.date.getFullYear() === 2021
@@ -61,7 +68,7 @@ const App = () => {
     <div>
       <div>{console.log(filteredArray)}</div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={expenses} pickedYear={pickedYear}/>
     </div>
   );
 }
