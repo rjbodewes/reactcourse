@@ -31,7 +31,7 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
 
-  
+  //handling changes in the filtered year
   const [selectedYear, setSelectedYear] = useState(2020)
 
   const pickedYear = (passedData) => {
@@ -55,17 +55,41 @@ const App = () => {
     });
   };
 
+  const filterChangeHandler = () => {
+    
+    
+    console.log(
+
+
+      expenses.filter(function(expense) {
+        return expense.date.getFullYear() === selectedYear
+    })
+
+
+    );
+    
+    /*setExpenses((prevExpenses) => {
+      return prevExpenses.filter(function(expense) {
+        return expense.date.getFullYear() === selectedYear
+    });
+
+    });*/ 
+    
+  };
 
 
   return (
     <div>
       <div>{selectedYear}</div>
-      <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={
-        expenses.filter(function(expense) {
-          return expense.date.getFullYear() === selectedYear
-      })
-      } pickedYear={pickedYear}/>
+      <NewExpense 
+      onAddExpense={addExpenseHandler} />
+      <Expenses 
+      onFilterChange={filterChangeHandler}
+      items={expenses}
+      pickedYear={pickedYear} 
+      value={selectedYear} 
+      />
+      
     </div>
   );
 }
