@@ -31,18 +31,20 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
 
-    
-
+  
+  const [selectedYear, setSelectedYear] = useState(2020)
 
   const pickedYear = (passedData) => {
-    console.log(passedData)
+    setSelectedYear(passedData)
   };
+
+  /*
   
   var filteredArray = DUMMY_EXPENSES.filter(function(expense) {
       return expense.date.getFullYear() === 2021
   });
-
-
+*/ 
+  
 
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
@@ -55,20 +57,15 @@ const App = () => {
 
 
 
-
-  
-  // return React.createElement(
-  //   'div',
-  //   {},
-  //   React.createElement('h2', {}, "Let's get started!"),
-  //   React.createElement(Expenses, { items: expenses })
-  // );
-
   return (
     <div>
-      <div>{console.log(filteredArray)}</div>
+      <div>{selectedYear}</div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} pickedYear={pickedYear}/>
+      <Expenses items={
+        expenses.filter(function(expense) {
+          return expense.date.getFullYear() === selectedYear
+      })
+      } pickedYear={pickedYear}/>
     </div>
   );
 }
