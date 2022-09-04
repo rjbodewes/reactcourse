@@ -31,7 +31,7 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
 
-  //handling changes in the filtered year
+
   
 
   
@@ -46,28 +46,7 @@ const App = () => {
     });
   };
 
-  /*const filterChangeHandler = () => {
-    
-    
-    console.log(
-
-      selectedYear,
-      expenses.filter(function(expense) {
-      
-        return expense.date.getFullYear() === 2020
-    })
-
-
-    );
-    
-    /*setExpenses((prevExpenses) => {
-      return prevExpenses.filter(function(expense) {
-        return expense.date.getFullYear() === selectedYear
-    });
-
-    }); 
-    
-  };*/
+  
 
 
   return (
